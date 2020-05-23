@@ -1,0 +1,202 @@
+// 1.1
+const twoDigitCombination = (start, end, before) => {
+  let result = "";
+  for (let i = start; i <= end; i++) {
+    i < before ? (result += " " + 0 + i) : (result += " " + i);
+  }
+  return result;
+};
+//console.log(twoDigitCombination(0, 99, 10));
+
+
+
+// 1.2
+
+function titleCase(str, small) {
+  str = str.toLowerCase();
+  let result = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (i === small) {
+      result += str[i].toUpperCase();
+    } else {
+      result += str[i];
+    }
+  }
+  return result;
+}
+//console.log(titleCase("daenerys", 1));
+
+
+
+// 2.1
+function filterRange(arr, a, b) {
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= a && arr[i] <= b) {
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+}
+//console.log(filterRange([1, 10, 20, 30], 9, 23));
+
+
+
+// 2.2
+
+const myArr = ["Godfather", "Game of Thrones", "Social Network"];
+const removeByLetter = (arr, item) => {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+    for (let j = 0; j < arr[i].length; j++) {
+      console.log(arr[i][j]);
+      if (
+        arr[i][j].toUpperCase() === item ||
+        arr[i][j].toLowerCase() === item
+      ) {
+        break;
+      } else {
+        result.push(arr[i]);
+        break;
+      }
+    }
+  }
+  return result;
+};
+// console.log(removeByLetter(myArr, "g"));
+
+
+
+
+// 2.3
+
+const frameworks = [
+  { id: 1, title: "react" },
+  { id: 2, title: "angular" },
+  { id: 3, title: "vue" },
+];
+
+const findId = (arr, index) => {
+  for (let i of arr) {
+    if (i.id === index) {
+      return i;
+    }
+  }
+  return "No data";
+};
+// console.log(findId1(frameworks, 3));
+
+
+
+
+
+//2.4
+//a
+const array = [12, 23, 34, 45, 56, 67, 78, 89, 90];
+const manual_Includes = (arr, index) => {
+  for (let i of arr) {
+    return i === index ? true : false;
+  }
+};
+//console.log(manual_Includes(array, 12));
+
+//b
+
+const manual_Join = (arr, index) => {
+  let result = "";
+  for (let i of arr) {
+    result += `${i}${index}`;
+  }
+  return result;
+};
+//console.log(manual_Join(array, ","));
+
+//c
+
+const manual_Slice = (arr, start, end) => {
+  let result = [];
+  if (start === 0 && end == undefined) {
+    for (let i = start; i < arr.length; i++) {
+      result.push(arr[i]);
+    }
+  } else {
+    if (start !== undefined && end == undefined) {
+      for (let i = start; i < arr.length; i++) {
+        result.push(arr[i]);
+      }
+    }
+    if (start !== undefined && end !== undefined) {
+      for (let i = start; i < end; i++) {
+        result.push(arr[i]);
+      }
+    }
+  }
+  return result;
+};
+//console.log(manual_Slice(array, 2, 5 ));
+
+//d
+
+// I don't know
+
+
+
+//e
+
+const manual_FindIndex = (arr, index) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === index) {
+      return i;
+    }
+  }
+  return -1;
+};
+//console.log(manual_FindIndex(array, 12));
+
+
+
+
+// 3.1
+
+const object = {};
+const objectSize = (obj) => {
+  let size = [];
+  for (let i in obj) {
+    size.push(i);
+  }
+  return size.length === 0 ? "Empty" : size.length;
+};
+// console.log(objectSize(object));
+
+//3.2
+
+const user = { user: "Steve", name: "Jobs" };
+const keyIncluded = (obj, keyObject) => {
+  let key = Object.keys(obj);
+  for (let i of key) {
+    if (keyObject === i) {
+      return true;
+    }
+  }
+  return false;
+};
+//console.log(keyIncluded(user, 'name'));
+
+
+
+//3.3
+
+const valueIncluded = (obj, valueObject) => {
+  let value = Object.values(obj);
+  for (let i of value) {
+    if (valueObject === i) {
+      return true;
+    }
+  }
+  return false;
+};
+//console.log(valueIncluded(user, "Jobs"));
